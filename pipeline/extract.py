@@ -8,9 +8,9 @@ def extract_data() -> pd.DataFrame:
 
     data = response.json()
 
-    rates = data["conversion_rates"]  # <--- updated key
-    base = data["base_code"]          # <--- updated key
-    date = data.get("time_last_update_utc", "")  # optional timestamp
+    rates = data["conversion_rates"]  
+    base = data["base_code"]          
+    date = data.get("time_last_update_utc", "")  
 
     df = pd.DataFrame(list(rates.items()), columns=["currency", "rate"])
     df["base_currency"] = base
